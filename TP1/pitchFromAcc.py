@@ -52,7 +52,6 @@ if __name__=='__main__':
     
     # Variance
     print("Variance du bruit de mesure :",np.std(w0))
-    print("Variance du bruit de mesure2 :",np.std(computedPitchFromAcc))
     
     # plots
     plt.figure(1)
