@@ -33,6 +33,7 @@ if __name__=='__main__':
     indicesK = [0]
     pitchImu = []
     vgyr = []
+    pitchImuPrevious = 0
     
 
     # main loop to parse data from IMU
@@ -47,15 +48,11 @@ if __name__=='__main__':
         pitchImu.append( math.radians(  imuMes.pitchDeg[i] ) )
         
         computedPitchFromGyro.append(pitchGyr)
-        vb = np.mean(computedPitchFromGyro) - np.mean(pitchImu)
-        print(vb)
-        vgyr.append( pitchGyr - imuMes.pitchDeg[i])
-        #vgyr.append( computedPitchFromGyro[i+1] + computedPitchFromGyro[i]/Te - vb)
-        #print(vgyr[i])
+        vgyr.append( imuMes.gyrY[i] - (pitchImu[i]-pitchImuPrevious)/Te - 0.02)
+        pitchImuPrevious = pitchImu[i]
     
     # Variance
     print("Variance du bruit de mesure :",np.std(vgyr))
-    print("Variance du bruit de mesure2 :",np.std(computedPitchFromGyro))
     
     # plots    
     plt.figure(2)
