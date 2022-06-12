@@ -45,7 +45,7 @@ if __name__=='__main__':
     # noises std dev
     
     # !!!!!!!!!!! A COMPLETER EN TD !!!!!!!!!!!!!!!!
-    gyroPitchRateStdDev = 0.0589325245235#0.00589325245235            # (rad/s)
+    gyroPitchRateStdDev = 0.00514906799379#0.00589325245235            # (rad/s)
     gyroPitchRateBiasStdDev = 0.00005  # (rad/s)
     acceleroPitchStdDev = 0.000514642898723#0.00514642898723       # (rad)
     biasRateGyro = 0.02             # (rad)
